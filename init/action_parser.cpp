@@ -86,23 +86,24 @@ Result<Success> ParseTriggers(const std::vector<std::string>& args, Subcontext* 
             return Error() << "empty trigger is not valid";
         }
 
-        if (i % 2) {
-            if (args[i] != "&&") {
-                return Error() << "&& is the only symbol allowed to concatenate actions";
-            } else {
-                continue;
-            }
-        }
 
-        if (!args[i].compare(0, prop_str.length(), prop_str)) {
+            
+ 
+
+            
+               
+            
+ 
+
+if (!args[i].compare(0, prop_str.length(), prop_str)) {
             if (auto result = ParsePropertyTrigger(args[i], subcontext, property_triggers);
                 !result) {
                 return result;
             }
-        } else {
-            if (!event_trigger->empty()) {
-                return Error() << "multiple event triggers are not allowed";
-            }
+        
+           
+                
+
 
             *event_trigger = args[i];
         }
